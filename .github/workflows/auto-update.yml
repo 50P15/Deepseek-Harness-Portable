@@ -22,10 +22,10 @@ jobs:
       tag: ${{ steps.update.outputs.tag }}
       commit_sha: ${{ steps.meta.outputs.commit_sha }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: main
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: '24.22.1'
           registry-url: https://registry.npmjs.org
@@ -34,7 +34,7 @@ jobs:
         run: node scripts/automation/update-deepseek.mjs
       - id: meta
         run: echo "commit_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: steps.update.outputs.changed == 'true'
         with:
           name: tested-candidate
@@ -63,10 +63,10 @@ jobs:
     env:
       DSH_PORTABLE_NO_AUTO_UPDATE: '1'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: ${{ needs.prepare.outputs.commit_sha }}
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: tested-candidate
           path: .
@@ -124,10 +124,10 @@ jobs:
           cp scripts/manifest.json dist/manifest.json
           cp scripts/locks/package-lock.json dist/package-lock.json
           (cd dist && sha256sum deepseek-harness-portable.zip manifest.json package-lock.json > SHA256SUMS)
-      - uses: actions/attest-build-provenance@v2
+      - uses: actions/attest-build-provenance@v4
         with:
           subject-path: dist/deepseek-harness-portable.zip
-      - uses: softprops/action-gh-release@v2
+      - uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ needs.prepare.outputs.tag }}
           name: ${{ needs.prepare.outputs.tag }}
