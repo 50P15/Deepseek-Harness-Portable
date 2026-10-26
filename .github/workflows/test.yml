@@ -17,7 +17,7 @@ jobs:
             launcher: windows.bat
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Static shell checks
         if: runner.os != 'Windows'
         run: sh -n linux.sh mac.sh scripts/portable.sh scripts/reset.sh
