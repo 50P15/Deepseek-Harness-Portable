@@ -53,10 +53,6 @@ jobs:
         include:
           - os: ubuntu-22.04
             launcher: linux.sh
-          - os: ubuntu-24.04
-            launcher: linux.sh
-          - os: macos-14
-            launcher: mac.sh
           - os: windows-2022
             launcher: windows.bat
     runs-on: ${{ matrix.os }}
