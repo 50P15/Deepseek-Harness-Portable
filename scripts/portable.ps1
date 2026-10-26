@@ -8,8 +8,8 @@ if (-not [Environment]::Is64BitOperatingSystem -or $env:PROCESSOR_ARCHITECTURE -
 $runtime = Join-Path $root 'runtimes\windows-x64'
 $node = Join-Path $runtime 'node\node.exe'
 $archive = Join-Path $root 'packages\bootstrap\windows-x64\node.zip'
-$url = 'https://nodejs.org/dist/v24.21.0/node-v24.21.0-win-x64.zip'
-$hash = '158f7685b44de51f6c0df1d153526cbcd3e1bc739a8dfc607721cef75de9e541'
+$url = 'https://nodejs.org/dist/v24.22.1/node-v24.22.1-win-x64.zip'
+$hash = 'd2046d28c2c3dcd211ac5145c0bf30e2047ef9dfb306693c8c6e2eccd8b95fa5'
 
 function Get-Sha256([string]$Path) {
   $stream = [IO.File]::OpenRead($Path)

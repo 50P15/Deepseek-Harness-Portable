@@ -64,12 +64,23 @@ function safeTitle(value) {
   return safe.slice(0, 60) || 'workspace'
 }
 
+// Node.js >= 24.22 decodes every concatenated frame in one zstdDecompressSync
+// call, so the first frame boundary is located explicitly: the shortest prefix
+// ending right before a frame magic number that decodes on its own.
+const ZSTD_MAGIC = Buffer.from([0x28, 0xb5, 0x2f, 0xfd])
+function firstZstdFrame(bytes) {
+  for (let index = bytes.indexOf(ZSTD_MAGIC, 1); index > 0; index = bytes.indexOf(ZSTD_MAGIC, index + 1)) {
+    try { return { buffer: zstdDecompressSync(bytes.subarray(0, index)), consumed: index } } catch {}
+  }
+  return { buffer: zstdDecompressSync(bytes), consumed: bytes.length }
+}
+
 function updateLogHeader(path, cwd) {
   const compressed = path.endsWith('.zstd')
   const bytes = readFileSync(path)
-  const decoded = compressed ? zstdDecompressSync(bytes, { info: true }) : undefined
+  const decoded = compressed ? firstZstdFrame(bytes) : undefined
   const firstFrameBytes = compressed ? decoded.buffer : bytes
-  const consumedBytes = compressed ? decoded.engine.bytesWritten : bytes.length
+  const consumedBytes = compressed ? decoded.consumed : bytes.length
   const text = firstFrameBytes.toString('utf8')
   const newline = text.indexOf('\n')
   const first = newline < 0 ? text : text.slice(0, newline)

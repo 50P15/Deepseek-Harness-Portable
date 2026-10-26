@@ -39,11 +39,11 @@ if [ "$TARGET" = linux-x64 ]; then
   if have findmnt && findmnt -no OPTIONS --target "$ROOT" 2>/dev/null | tr ',' '\n' | grep -qx noexec; then
     fail "The drive is mounted noexec. Remount it with exec before running DeepSeek Harness."
   fi
-  URL='https://nodejs.org/dist/v24.21.0/node-v24.21.0-linux-x64.tar.xz'
-  HASH='fd8e59d5a511510f6a298afb548f18c7d2b1be404d8b4a27d94fbe49f56cb2d6'
+  URL='https://nodejs.org/dist/v24.22.1/node-v24.22.1-linux-x64.tar.xz'
+  HASH='6c172a9ab6718f7b801fb5a7bd486af2ee5e32758086a04b84fcce2aa77095e6'
 else
-  URL='https://nodejs.org/dist/v24.21.0/node-v24.21.0-darwin-arm64.tar.xz'
-  HASH='6239d4cf92d864487ec8cd3615038f7b67e7f58b77b21cd2f09ea9fbd68065fe'
+  URL='https://nodejs.org/dist/v24.22.1/node-v24.22.1-darwin-arm64.tar.xz'
+  HASH='654ba79de6155647e22321932b45f2a1ccb705976cc337c9b8e278beb085a628'
 fi
 
 if [ ! -x "$NODE" ]; then

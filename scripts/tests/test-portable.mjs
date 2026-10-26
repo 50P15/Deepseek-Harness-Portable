@@ -48,9 +48,11 @@ try {
   assert.equal(JSON.parse(readFileSync(cachePath, 'utf8')).record.identity.cwd, expectedCwd)
   const migratedLog = join(dshHome, 'sessions', projectKey(expectedCwd), sessionId, 'session.v4.jsonl.zstd')
   const migratedBytes = readFileSync(migratedLog)
-  const migratedHeader = zstdDecompressSync(migratedBytes, { info: true })
-  assert.equal(JSON.parse(migratedHeader.buffer.toString('utf8').trim()).cwd, expectedCwd)
-  assert.deepEqual(migratedBytes.subarray(migratedHeader.engine.bytesWritten), eventFrame)
+  // The event frame must survive byte-for-byte after the rewritten header frame.
+  const headerLength = migratedBytes.length - eventFrame.length
+  assert.deepEqual(migratedBytes.subarray(headerLength), eventFrame)
+  const migratedHeader = zstdDecompressSync(migratedBytes.subarray(0, headerLength))
+  assert.equal(JSON.parse(migratedHeader.toString('utf8').trim()).cwd, expectedCwd)
   assert.equal(existsSync(join(dshHome, 'sessions', projectKey(oldCwd))), false)
 } finally {
   rmSync(fixture, { recursive: true, force: true })

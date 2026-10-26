@@ -8,13 +8,15 @@
 
 Run the official DeepSeek Harness from one self-contained folder on an internal disk, USB drive, or external SSD. Your runtimes stay isolated by operating system while chats, settings, skills, plugins, and credentials travel with you.
 
-[![Latest release](https://img.shields.io/github/v/release/techjarves/Deepseek-Harness-Portable?display_name=tag&style=flat-square&color=2563eb)](https://github.com/techjarves/Deepseek-Harness-Portable/releases/latest)
+[![Latest release](https://img.shields.io/github/v/release/50P15/Deepseek-Harness-Portable?display_name=tag&style=flat-square&color=2563eb)](https://github.com/50P15/Deepseek-Harness-Portable/releases/latest)
 [![Platforms](https://img.shields.io/badge/platforms-Windows%20%7C%20Linux%20%7C%20macOS-0f172a?style=flat-square)](#supported-platforms)
 [![Architecture](https://img.shields.io/badge/CPU-x64%20%7C%20arm64-64748b?style=flat-square)](#supported-platforms)
-[![Cross-platform tests](https://img.shields.io/github/actions/workflow/status/techjarves/Deepseek-Harness-Portable/test.yml?branch=main&style=flat-square&label=tests)](https://github.com/techjarves/Deepseek-Harness-Portable/actions/workflows/test.yml)
+[![Cross-platform tests](https://img.shields.io/github/actions/workflow/status/50P15/Deepseek-Harness-Portable/test.yml?branch=main&style=flat-square&label=tests)](https://github.com/50P15/Deepseek-Harness-Portable/actions/workflows/test.yml)
 [![Watch demo](https://img.shields.io/badge/Watch-Demo-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://youtu.be/nyTJ-1sqkVU)
 
-[**Download latest release**](https://github.com/techjarves/Deepseek-Harness-Portable/releases/latest/download/deepseek-harness-portable.zip) · [**Watch walkthrough**](https://youtu.be/nyTJ-1sqkVU) · [**Quick start**](#quick-start) · [**How portability works**](#how-portability-works) · [**Troubleshooting**](#troubleshooting)
+> Updated fork of [techjarves/Deepseek-Harness-Portable](https://github.com/techjarves/Deepseek-Harness-Portable): DeepSeek Harness 0.2.1-rc.3, Node.js 24.22.1 LTS, pnpm 12.15.0.
+
+[**Download latest release**](https://github.com/50P15/Deepseek-Harness-Portable/releases/latest/download/deepseek-harness-portable.zip) · [**Watch walkthrough**](https://youtu.be/nyTJ-1sqkVU) · [**Quick start**](#quick-start) · [**How portability works**](#how-portability-works) · [**Troubleshooting**](#troubleshooting)
 
 </div>
 
@@ -61,7 +63,7 @@ DeepSeek Harness normally depends on a local Node.js environment and stores host
 
 ## Quick start
 
-Download [`deepseek-harness-portable.zip`](https://github.com/techjarves/Deepseek-Harness-Portable/releases/latest/download/deepseek-harness-portable.zip), extract it, and run the launcher for the current operating system.
+Download [`deepseek-harness-portable.zip`](https://github.com/50P15/Deepseek-Harness-Portable/releases/latest/download/deepseek-harness-portable.zip), extract it, and run the launcher for the current operating system.
 
 ### Windows
 
@@ -231,7 +233,7 @@ Every source change is tested through GitHub Actions on:
 
 The suite covers manifest integrity, clean installation, launcher behavior, runtime isolation, checksum validation, chat-path migration, multi-frame Zstandard history preservation, and CLI startup.
 
-[View the cross-platform test history →](https://github.com/techjarves/Deepseek-Harness-Portable/actions/workflows/test.yml)
+[View the cross-platform test history →](https://github.com/50P15/Deepseek-Harness-Portable/actions/workflows/test.yml)
 
 ## Upstream project
 
@@ -245,6 +247,6 @@ This repository is an independent portability layer and is not the upstream Deep
 
 **One folder. Three operating systems. Your Harness workspace everywhere.**
 
-[Download](https://github.com/techjarves/Deepseek-Harness-Portable/releases/latest) · [Report an issue](https://github.com/techjarves/Deepseek-Harness-Portable/issues) · [View releases](https://github.com/techjarves/Deepseek-Harness-Portable/releases)
+[Download](https://github.com/50P15/Deepseek-Harness-Portable/releases/latest) · [Report an issue](https://github.com/50P15/Deepseek-Harness-Portable/issues) · [View releases](https://github.com/50P15/Deepseek-Harness-Portable/releases)
 
 </div>

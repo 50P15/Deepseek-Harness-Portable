@@ -149,13 +149,15 @@ function setup() {
     if (dshLock?.integrity !== manifest.deepseekHarness.integrity) fail('installed dsh package integrity does not match the tested manifest')
     const binDir = join(runtime, 'bin')
     mkdirSync(binDir, { recursive: true })
+    // pnpm >= 11 ships a native binary in @pnpm/exe.<target>; bin/pnpm.mjs
+    // locates it inside node_modules and runs it, with or without install.js.
     if (target === 'windows-x64') {
-      writeFileSync(join(binDir, 'pnpm.cmd'), '@echo off\r\n"%~dp0..\\node\\node.exe" "%~dp0..\\dsh\\node_modules\\pnpm\\bin\\pnpm.cjs" %*\r\n')
-      writeFileSync(join(binDir, 'pnpx.cmd'), '@echo off\r\n"%~dp0..\\node\\node.exe" "%~dp0..\\dsh\\node_modules\\pnpm\\bin\\pnpm.cjs" dlx %*\r\n')
+      writeFileSync(join(binDir, 'pnpm.cmd'), '@echo off\r\n"%~dp0..\\node\\node.exe" "%~dp0..\\dsh\\node_modules\\pnpm\\bin\\pnpm.mjs" %*\r\n')
+      writeFileSync(join(binDir, 'pnpx.cmd'), '@echo off\r\n"%~dp0..\\node\\node.exe" "%~dp0..\\dsh\\node_modules\\pnpm\\bin\\pnpx.mjs" %*\r\n')
     } else {
       const prologue = '#!/bin/sh\nHERE=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd -P)\n'
-      writeFileSync(join(binDir, 'pnpm'), `${prologue}exec "$HERE/../node/bin/node" "$HERE/../dsh/node_modules/pnpm/bin/pnpm.cjs" "$@"\n`, { mode: 0o755 })
-      writeFileSync(join(binDir, 'pnpx'), `${prologue}exec "$HERE/../node/bin/node" "$HERE/../dsh/node_modules/pnpm/bin/pnpm.cjs" dlx "$@"\n`, { mode: 0o755 })
+      writeFileSync(join(binDir, 'pnpm'), `${prologue}exec "$HERE/../node/bin/node" "$HERE/../dsh/node_modules/pnpm/bin/pnpm.mjs" "$@"\n`, { mode: 0o755 })
+      writeFileSync(join(binDir, 'pnpx'), `${prologue}exec "$HERE/../node/bin/node" "$HERE/../dsh/node_modules/pnpm/bin/pnpx.mjs" "$@"\n`, { mode: 0o755 })
     }
     const previous = join(root, 'temp', `previous-dsh-${target}`)
     rmSync(previous, { recursive: true, force: true })
