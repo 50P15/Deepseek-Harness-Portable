@@ -14,7 +14,7 @@ jobs:
   release:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Build portable starter archive
         run: |
           mkdir -p dist
@@ -22,10 +22,10 @@ jobs:
           cp scripts/manifest.json dist/manifest.json
           cp scripts/locks/package-lock.json dist/package-lock.json
           (cd dist && sha256sum deepseek-harness-portable.zip manifest.json package-lock.json > SHA256SUMS)
-      - uses: actions/attest-build-provenance@v2
+      - uses: actions/attest-build-provenance@v4
         with:
           subject-path: dist/deepseek-harness-portable.zip
-      - uses: softprops/action-gh-release@v2
+      - uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ inputs.tag }}
           files: dist/*
