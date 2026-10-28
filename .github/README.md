@@ -56,7 +56,6 @@ DeepSeek Harness normally depends on a local Node.js environment and stores host
 | --- | --- | --- | --- |
 | Windows 10/11 | x64 | 64-bit desktop Windows | `windows.bat` |
 | Linux | x64 | glibc; Ubuntu 22.04 compatible | `linux.sh` |
-| macOS | Apple Silicon | arm64 | `mac.sh` |
 
 > [!NOTE]
 > Windows ARM64, Linux ARM64, Intel macOS, and musl-based Linux distributions are not supported in version 1.
@@ -77,13 +76,6 @@ windows.bat
 ```sh
 sh linux.sh setup
 sh linux.sh
-```
-
-### macOS
-
-```sh
-sh mac.sh setup
-sh mac.sh
 ```
 
 The first command initializes or repairs only the current platform. The second starts the local DeepSeek Harness web interface and opens it in your normal browser, typically at `http://127.0.0.1:3080`.
