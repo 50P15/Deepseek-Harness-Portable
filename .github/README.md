@@ -4,7 +4,7 @@
 
 # DeepSeek Harness Portable
 
-### *Your complete AI coding workspace—portable across Windows, Linux, and macOS.*
+### *Your complete AI coding workspace—portable across Windows and Linux.*
 
 Run the official DeepSeek Harness from one self-contained folder on an internal disk, USB drive, or external SSD. Your runtimes stay isolated by operating system while chats, settings, skills, plugins, and credentials travel with you.
 
