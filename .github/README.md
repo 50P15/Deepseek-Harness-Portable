@@ -9,7 +9,7 @@
 Run the official DeepSeek Harness from one self-contained folder on an internal disk, USB drive, or external SSD. Your runtimes stay isolated by operating system while chats, settings, skills, plugins, and credentials travel with you.
 
 [![Latest release](https://img.shields.io/github/v/release/50P15/Deepseek-Harness-Portable?display_name=tag&style=flat-square&color=2563eb)](https://github.com/50P15/Deepseek-Harness-Portable/releases/latest)
-[![Platforms](https://img.shields.io/badge/platforms-Windows%20%7C%20Linux%20%7C%20macOS-0f172a?style=flat-square)](#supported-platforms)
+[![Platforms](https://img.shields.io/badge/platforms-Windows%20%7C%20Linux%0f172a?style=flat-square)](#supported-platforms)
 [![Architecture](https://img.shields.io/badge/CPU-x64%20%7C%20arm64-64748b?style=flat-square)](#supported-platforms)
 [![Cross-platform tests](https://img.shields.io/github/actions/workflow/status/50P15/Deepseek-Harness-Portable/test.yml?branch=main&style=flat-square&label=tests)](https://github.com/50P15/Deepseek-Harness-Portable/actions/workflows/test.yml)
 [![Watch demo](https://img.shields.io/badge/Watch-Demo-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://youtu.be/nyTJ-1sqkVU)
