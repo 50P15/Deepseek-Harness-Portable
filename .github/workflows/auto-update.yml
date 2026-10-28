@@ -65,7 +65,7 @@ jobs:
       - uses: actions/download-artifact@v8
         with:
           name: tested-candidate
-          path: .
+          path: scripts
       - name: Static shell checks
         if: runner.os != 'Windows'
         run: sh -n linux.sh mac.sh scripts/portable.sh scripts/reset.sh
