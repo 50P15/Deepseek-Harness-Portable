@@ -103,7 +103,7 @@ jobs:
       - uses: actions/download-artifact@v8
         with:
           name: tested-candidate
-          path: .
+          path: scripts
       - name: Publish tested source update
         shell: bash
         run: |
