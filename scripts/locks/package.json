@@ -2,7 +2,7 @@
   "private": true,
   "description": "Lock template for the tested portable DeepSeek Harness runtime",
   "allowScripts": {
-    "@deepseek-ai/dsh-subprocess-local@0.2.1-rc.4": true,
+    "@deepseek-ai/dsh-subprocess-local@0.2.1-rc.5": true,
     "@google/genai@2.21.0": true,
     "koffi@3.1.1": true,
     "node-pty@1.2.0-beta.15": true,
@@ -10,7 +10,7 @@
     "protobufjs@7.6.6": true
   },
   "dependencies": {
-    "@deepseek-ai/dsh": "0.2.1-rc.4",
+    "@deepseek-ai/dsh": "0.2.1-rc.5",
     "pnpm": "12.15.0"
   },
   "overrides": {
