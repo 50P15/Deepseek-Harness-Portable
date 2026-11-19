@@ -35,7 +35,8 @@ if (-not (Test-Path $node -PathType Leaf)) {
   }
   $stage = Join-Path $root "temp\node-windows-x64-$PID"
   New-Item -ItemType Directory -Force -Path $stage | Out-Null
-  Expand-Archive -LiteralPath $archive -DestinationPath $stage
+  Add-Type -AssemblyName System.IO.Compression.FileSystem
+  [IO.Compression.ZipFile]::ExtractToDirectory($archive, $stage)
   $extracted = Get-ChildItem -LiteralPath $stage -Directory | Select-Object -First 1
   if (-not $extracted -or -not (Test-Path (Join-Path $extracted.FullName 'node.exe'))) { throw 'Node.js archive has an unexpected layout.' }
   $new = Join-Path $runtime 'node.new'
